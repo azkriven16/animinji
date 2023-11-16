@@ -11,8 +11,10 @@ export default function TRPCProvider({ children }: PropsWithChildren) {
 
   const apiUrl =
     process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_URL!
+      ? process.env.NEXT_PUBLIC_TRPC! || "https://animinji.vercel.app/api/trpc"
       : "http://localhost:3000/api/trpc";
+  console.log(process.env.NEXT_PUBLIC_TRPC);
+
   const [trpcClient] = useState(() =>
     trpc.createClient({
       links: [
