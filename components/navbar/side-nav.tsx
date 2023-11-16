@@ -26,6 +26,7 @@ import { useState } from "react";
 
 export default function NavMobile() {
   const [open, setOpen] = useState(false);
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
