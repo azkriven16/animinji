@@ -33,20 +33,12 @@ export const siteConfig = {
       href: "https://trpc.io/",
     },
     {
-      text: "Supabase",
-      href: "https://supabase.com/",
-    },
-    {
       text: "Prisma",
       href: "https://www.prisma.io/",
     },
     {
       text: "React Query",
       href: "https://tanstack.com/query/latest/",
-    },
-    {
-      text: "Artplayer",
-      href: "https://www.artplayer.org/",
     },
   ],
   lofi: [

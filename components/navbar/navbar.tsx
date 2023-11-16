@@ -4,8 +4,15 @@ import Logo from "../logo";
 import { Button } from "../ui/button";
 import NavSearch from "./nav-search";
 import NavMobile from "./nav-mobile";
-import { ClerkLoaded, ClerkLoading, SignInButton } from "@clerk/nextjs";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 import { Spinner } from "../spinner";
+import User from "../user";
 
 export default function Navbar() {
   return (
@@ -22,9 +29,15 @@ export default function Navbar() {
             </div>
           </ClerkLoading>
           <ClerkLoaded>
-            <SignInButton mode="modal">
-              <Button size="sm">Sign In</Button>
-            </SignInButton>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button size="sm">Sign In</Button>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <User />
+            </SignedIn>
           </ClerkLoaded>
         </div>
       </div>

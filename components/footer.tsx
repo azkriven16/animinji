@@ -3,6 +3,7 @@ import { ModeToggle } from "./mode-toggle";
 import { AiFillGithub } from "react-icons/ai";
 import { Button } from "./ui/button";
 import { siteConfig } from "@/constants/site";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -70,16 +71,29 @@ function MainFooter() {
 
       <div className="space-y-3">
         <h1 className="text-base sm:text-md font-medium">Navigation</h1>
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Button className="w-full" variant="outline">
-            New Anime
-          </Button>
-          <Button className="w-full" variant="outline">
-            Top Airing
-          </Button>
-          <Button className="w-full" variant="secondary">
-            Favorites
-          </Button>
+        <div className="flex flex-col md:flex-row gap-3">
+          <Link href="/">
+            <Button className="w-full" variant="ghost">
+              New Anime
+            </Button>
+          </Link>
+
+          <Link href="/top-airing">
+            <Button className="w-full" variant="ghost">
+              Top Airing
+            </Button>
+          </Link>
+
+          <Link href="/favorites">
+            <Button className="w-full" variant="secondary">
+              Favorites
+            </Button>
+          </Link>
+          <div className="flex-1"></div>
+          <p className="text-muted-foreground text-sm max-w-md text-center md:text-start mx-auto">
+            Animinji is a minimal anime streaming website built with Typescript,
+            Next 13, TRPC and React Query.
+          </p>
         </div>
       </div>
     </div>
