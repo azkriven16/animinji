@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,41 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id @unique //same as auth provider
+
+  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
+  stripePriceId          String?   @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_id")
+
+  Favorite Favorite[]
+  Comment  Comment[]
+}
+
+model Favorite {
+  id      String @id @default(cuid())
+  title   String
+  animeId String
+  imgUrl  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    String
+}
+
+model Comment {
+  id        String @id @default(cuid())
+  User      User   @relation(fields: [userId], references: [id])
+  userId    String
+  comment   String
+  episodeId String
+  userImg   String
+  userName  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
