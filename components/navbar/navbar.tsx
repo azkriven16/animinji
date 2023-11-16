@@ -4,11 +4,10 @@ import Logo from "../logo";
 import { Button } from "../ui/button";
 import NavSearch from "./nav-search";
 import NavMobile from "./nav-mobile";
-import NavItems from "./nav-items";
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 py-3 px-2 bg-background border-b shadow-sm z-50">
+    <nav className="sticky top-0 py-3 px-2 bg-background border-b shadow-sm z-10">
       <div className="flex items-center max-w-5xl mx-auto justify-between">
         <NavMobile />
         <Logo />

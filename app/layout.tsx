@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
+import TRPCProvider from "@/providers/trpc-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,9 +28,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="min-h-screen bg-background">{children}</main>
-          <Footer />
+          <TRPCProvider>
+            <Navbar />
+            <main className="min-h-screen bg-background">{children}</main>
+            <Footer />
+          </TRPCProvider>
         </ThemeProvider>
       </body>
     </html>

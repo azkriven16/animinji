@@ -5,7 +5,7 @@ import { IconType } from "react-icons";
 export default function BuiltWith() {
   return (
     <div className="space-y-5">
-      <h1 className="text-base sm:text-md md:text-lg font-medium mt-20">
+      <h1 className="text-base sm:text-md md:text-lg font-medium mt-10">
         Built with
       </h1>
 

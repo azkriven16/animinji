@@ -1,6 +1,9 @@
 import { TbBrandNextjs } from "react-icons/tb";
 import { SiPrisma, SiReactquery, SiSupabase, SiTrpc } from "react-icons/si";
 import { BsPlayFill } from "react-icons/bs";
+
+export const animeBaseURL = "https://api.consumet.org";
+
 export const siteConfig = {
   name: "Animinji",
   description: "Open source minimal anime website.",
@@ -16,8 +19,8 @@ export const siteConfig = {
       href: "/new",
     },
     {
-      text: "Hot",
-      href: "/hot",
+      text: "Top Airing",
+      href: "/top-airing",
     },
     {
       text: "Favorites",
