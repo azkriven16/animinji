@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import TRPCProvider from "@/providers/trpc-provider";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,21 +21,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", inter.className)}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TRPCProvider>
-            <Navbar />
-            <main className="min-h-screen bg-background">{children}</main>
-            <Footer />
-          </TRPCProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#dc2626",
+        },
+      }}
+    >
+      <html lang="en" suppressHydrationWarning>
+        <body className={cn("antialiased", inter.className)}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TRPCProvider>
+              <Navbar />
+              <main className="min-h-screen bg-background">{children}</main>
+              <Footer />
+            </TRPCProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

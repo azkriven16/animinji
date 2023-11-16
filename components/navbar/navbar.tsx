@@ -4,6 +4,8 @@ import Logo from "../logo";
 import { Button } from "../ui/button";
 import NavSearch from "./nav-search";
 import NavMobile from "./nav-mobile";
+import { ClerkLoaded, ClerkLoading, SignInButton } from "@clerk/nextjs";
+import { Spinner } from "../spinner";
 
 export default function Navbar() {
   return (
@@ -14,7 +16,16 @@ export default function Navbar() {
         <div className=" flex items-center space-x-3">
           <NavSearch />
           <ModeToggle />
-          <Button size="sm">Sign In</Button>
+          <ClerkLoading>
+            <div className="w-full flex items-center justify-center">
+              <Spinner size="lg" />
+            </div>
+          </ClerkLoading>
+          <ClerkLoaded>
+            <SignInButton mode="modal">
+              <Button size="sm">Sign In</Button>
+            </SignInButton>
+          </ClerkLoaded>
         </div>
       </div>
     </nav>

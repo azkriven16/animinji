@@ -1,4 +1,4 @@
-import { Loader } from "lucide-react";
+import { Loader, Loader2 } from "lucide-react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -22,7 +22,7 @@ interface SpinnerProps extends VariantProps<typeof spinnerVariants> {}
 
 export const Spinner = ({ size }: SpinnerProps) => {
   return (
-    <Loader
+    <Loader2
       className={(cn(spinnerVariants({ size })), "mx-auto animate-spin")}
     />
   );
