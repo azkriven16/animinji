@@ -52,9 +52,8 @@ export default function InfoPage() {
     <>
       <Shell>
         <Accordion
-          defaultValue="item-2"
-          type="single"
-          collapsible
+          defaultValue={["item-2", "item-3"]}
+          type="multiple"
           className="w-full"
         >
           <AccordionItem value="item-1">
@@ -89,8 +88,7 @@ export default function InfoPage() {
           <AccordionItem value="item-3">
             <AccordionTrigger>Comments</AccordionTrigger>
             <AccordionContent>
-              Yes. It&apos;s animated by default, but you can disable it if you
-              prefer.
+              This is the comment section but i dont know how to make it :(
             </AccordionContent>
           </AccordionItem>
         </Accordion>

@@ -1,9 +1,12 @@
+"use client";
+
 import Logo from "./logo";
 import { ModeToggle } from "./mode-toggle";
 import { AiFillGithub } from "react-icons/ai";
 import { Button } from "./ui/button";
 import { siteConfig } from "@/constants/site";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
   return (
@@ -14,7 +17,7 @@ export default function Footer() {
           <div className="text-muted-foreground">
             Built by{" "}
             <a
-              href="https://notioly.com/"
+              href={siteConfig.links.github}
               target="_blank"
               className="hover:underline text-foreground"
             >
@@ -36,6 +39,7 @@ export default function Footer() {
 }
 
 function MainFooter() {
+  const path = usePathname();
   return (
     <div className="space-y-5">
       <Logo />
@@ -43,28 +47,28 @@ function MainFooter() {
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Built with</h1>
           {siteConfig.builtWith.map((item) => (
-            <FooterStack {...item} />
+            <FooterStack key={item.text} {...item} />
           ))}
         </div>
 
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Social</h1>
           {siteConfig.lofi.map((item) => (
-            <FooterStack {...item} />
+            <FooterStack {...item} key={item.text} />
           ))}
         </div>
 
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Help</h1>
           {siteConfig.lofi.map((item) => (
-            <FooterStack {...item} />
+            <FooterStack {...item} key={item.text} />
           ))}
         </div>
 
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Lofi</h1>
           {siteConfig.lofi.map((item) => (
-            <FooterStack {...item} />
+            <FooterStack {...item} key={item.text} />
           ))}
         </div>
       </div>
@@ -72,23 +76,17 @@ function MainFooter() {
       <div className="space-y-3">
         <h1 className="text-base sm:text-md font-medium">Navigation</h1>
         <div className="flex flex-col md:flex-row gap-3">
-          <Link href="/">
-            <Button className="w-full" variant="ghost">
-              New Anime
-            </Button>
-          </Link>
-
-          <Link href="/top-airing">
-            <Button className="w-full" variant="ghost">
-              Top Airing
-            </Button>
-          </Link>
-
-          <Link href="/favorites">
-            <Button className="w-full" variant="secondary">
-              Favorites
-            </Button>
-          </Link>
+          {siteConfig.navItems.map((item) => (
+            <Link href={item.href} key={item.text}>
+              <Button
+                size="sm"
+                className="w-full justify-start"
+                variant={path === item.href ? "default" : "secondary"}
+              >
+                {item.text}
+              </Button>
+            </Link>
+          ))}
           <div className="flex-1"></div>
           <p className="text-muted-foreground text-sm max-w-md text-center md:text-start mx-auto">
             Animinji is a minimal anime streaming website built with Typescript,

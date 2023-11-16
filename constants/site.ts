@@ -3,16 +3,16 @@ export const animeBaseURL = "https://api.consumet.org";
 export const siteConfig = {
   name: "Animinji",
   description: "Open source minimal anime website.",
-  url: "shisso.vercel.app",
+  url: "animinji.vercel.app",
   links: {
     twitter: "https://twitter.com/EugerBonete",
     github: "https://eug.vercel.app/",
-    project: "https://github.com/EugerBonete/shisso",
+    project: "https://github.com/EugerBonete/animinji",
   },
   navItems: [
     {
       text: "New",
-      href: "/new",
+      href: "/",
     },
     {
       text: "Top Airing",

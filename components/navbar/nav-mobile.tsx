@@ -1,8 +1,8 @@
+"use client";
+
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -15,10 +15,19 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "../mode-toggle";
 import { AiFillGithub } from "react-icons/ai";
+import { SignedOut } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignUpButton,
+} from "@clerk/clerk-react";
+import { useState } from "react";
 
 export default function NavMobile() {
+  const [open, setOpen] = useState(false);
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button size="icon" variant="ghost">
           <HiOutlineMenuAlt2 size={20} />
@@ -34,6 +43,7 @@ export default function NavMobile() {
             {siteConfig.navItems.map((link) => (
               <li>
                 <Link
+                  key={link.text}
                   href={link.href}
                   className={cn(
                     buttonVariants({ variant: "ghost" }),
@@ -47,21 +57,70 @@ export default function NavMobile() {
           </ul>
           <div className="flex-1 flex flex-col items-center gap-2">
             <div className="w-full">
-              <Button size="sm" className="w-full mb-1">
-                Sign In
-              </Button>
-              <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
-                Already have account?
-              </span>
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <div>
+                    <Button
+                      onClick={() => setOpen((prev) => !prev)}
+                      size="sm"
+                      className="w-full mb-1"
+                    >
+                      Sign In
+                    </Button>
+                    <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
+                      Already have account?
+                    </span>
+                  </div>
+                </SignInButton>
+              </SignedOut>
+
+              <SignedIn>
+                <Link href="/favorites">
+                  <Button size="sm" className="w-full mb-1">
+                    Favorites
+                  </Button>
+                  <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
+                    Check out your favorites list.
+                  </span>
+                </Link>
+              </SignedIn>
             </div>
             or
             <div className="w-full">
-              <Button variant="secondary" size="sm" className="w-full mb-1">
-                Sign Up
-              </Button>
-              <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
-                New to {siteConfig.name}? Create account.
-              </span>
+              <SignedOut>
+                <SignUpButton mode="modal">
+                  <div>
+                    <Button
+                      onClick={() => setOpen((prev) => !prev)}
+                      variant="secondary"
+                      size="sm"
+                      className="w-full mb-1"
+                    >
+                      Sign Up
+                    </Button>
+                    <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
+                      New to {siteConfig.name}? Create account.
+                    </span>
+                  </div>
+                </SignUpButton>
+              </SignedOut>
+
+              <SignedIn>
+                <SignOutButton>
+                  <div>
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      className="w-full mb-1"
+                    >
+                      Sign Out
+                    </Button>
+                    <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
+                      Log out of your account.
+                    </span>
+                  </div>
+                </SignOutButton>
+              </SignedIn>
             </div>
           </div>
           <div className="flex">

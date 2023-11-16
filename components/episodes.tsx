@@ -30,6 +30,7 @@ import { Input } from "./ui/input";
 import { toast } from "sonner";
 import { Badge } from "./ui/badge";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { siteConfig } from "@/constants/site";
 
 interface GridProps {
   loading: boolean;
@@ -108,6 +109,7 @@ export default function Episodes({
       router.push(`/video?anime=${data?.id}&episode=${epId}`);
     }
   }
+
   return (
     <>
       <div className="flex items-center justify-between">
@@ -123,8 +125,21 @@ export default function Episodes({
               {cleanHtmlTags(data?.title)} {text}
             </h1>
           )}
-
-          <p className="text-base md:text-lg">{desc}</p>
+          {path !== "/info" && path !== "/video" && (
+            <div className="flex gap-3">
+              {siteConfig.navItems.map((item) => (
+                <Link href={item.href} key={item.text}>
+                  <Button
+                    size="sm"
+                    className="w-full"
+                    variant={path === item.href ? "default" : "secondary"}
+                  >
+                    {item.text}
+                  </Button>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         {pagination && (
           <div className="hidden sm:flex">
