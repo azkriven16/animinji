@@ -8,22 +8,22 @@ export default function Pagination({ url }: { url: string }) {
   const page = parseInt(searchParams.get("page") || "1", 10);
 
   return (
-    <div className="flex justify-end my-5">
-      <Button variant="ghost" disabled={page <= 1}>
+    <div className="flex justify-end gap-2 my-5">
+      <Button size="sm" variant="outline" disabled={page <= 1}>
         <Link
           href={`/${url}?page=${page - 1}`}
           className="flex items-center gap-2"
         >
-          <ChevronLeft />
-          <span className="hidden sm:inline">Previous</span>
+          <ChevronLeft size={20} />
+          Previous
         </Link>
       </Button>
-      <Button variant="ghost">
+      <Button size="sm" variant="outline">
         <Link
           href={`/${url}?page=${page + 1}`}
           className="flex items-center gap-2"
         >
-          <span className="hidden sm:inline">Next</span> <ChevronRight />
+          Next <ChevronRight size={20} />
         </Link>
       </Button>
     </div>

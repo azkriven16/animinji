@@ -54,7 +54,7 @@ export default function Episodes({
   const path = usePathname();
   const router = useRouter();
 
-  const skeletonArray = new Array(10).fill(null);
+  const skeletonArray = new Array(20).fill(null);
   const [visibleEpisodes, setVisibleEpisodes] = useState(
     initialVisibleEpisodes
   );
@@ -124,16 +124,16 @@ export default function Episodes({
             </h1>
           )}
 
-          <p className="text-muted-foreground text-sm md:text-base">{desc}</p>
+          <p className="text-base md:text-lg">{desc}</p>
         </div>
         {pagination && (
-          <div className="hidden md:flex">
+          <div className="hidden sm:flex">
             <Pagination url={pagination} />
           </div>
         )}
       </div>
       {pagination && (
-        <div className="md:hidden flex">
+        <div className="sm:hidden flex">
           <Pagination url={pagination} />
         </div>
       )}

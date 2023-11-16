@@ -1,7 +1,3 @@
-import { TbBrandNextjs } from "react-icons/tb";
-import { SiPrisma, SiReactquery, SiSupabase, SiTrpc } from "react-icons/si";
-import { BsPlayFill } from "react-icons/bs";
-
 export const animeBaseURL = "https://api.consumet.org";
 
 export const siteConfig = {
@@ -29,33 +25,48 @@ export const siteConfig = {
   ],
   builtWith: [
     {
-      icon: TbBrandNextjs,
       text: "Next JS",
+      href: "https://nextjs.org/",
     },
     {
-      icon: SiTrpc,
       text: "TRPC",
+      href: "https://trpc.io/",
     },
     {
-      icon: SiSupabase,
       text: "Supabase",
+      href: "https://supabase.com/",
     },
     {
-      icon: SiPrisma,
       text: "Prisma",
+      href: "https://www.prisma.io/",
     },
     {
-      icon: SiReactquery,
       text: "React Query",
+      href: "https://tanstack.com/query/latest/",
     },
     {
-      icon: BsPlayFill,
       text: "Artplayer",
+      href: "https://www.artplayer.org/",
     },
   ],
-  footerItems: {
-    links: [],
-  },
+  lofi: [
+    {
+      text: "beats to study to",
+      href: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+    },
+    {
+      text: "beats to chill to",
+      href: "https://www.youtube.com/watch?v=rUxyKA_-grg",
+    },
+    {
+      text: "a fresh start",
+      href: "https://www.youtube.com/watch?v=rwionZbOryo",
+    },
+    {
+      text: "coffee to go",
+      href: "https://www.youtube.com/watch?v=2gliGzb2_1I",
+    },
+  ],
 };
 
 export const NavItemsData = [
