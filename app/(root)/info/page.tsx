@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/accordion";
 import { cleanHtmlTags } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
+import AnimeNotFound from "@/components/anime-not-found";
 
 export default function InfoPage() {
   const searchParams = useSearchParams();
@@ -39,14 +40,7 @@ export default function InfoPage() {
       </div>
     );
 
-  if (!data.id)
-    return (
-      <Error
-        headline="Oops! Something went wrong."
-        img="/movie.png"
-        subheadline="We're sorry, but an error occurred while loading this page."
-      />
-    );
+  if (!data.id) return <AnimeNotFound anime={anime} />;
 
   return (
     <>

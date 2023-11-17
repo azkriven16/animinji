@@ -2,7 +2,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn, cleanHtmlTags } from "@/lib/utils";
 import Link from "next/link";
-import { SlidersHorizontal } from "lucide-react";
+import { Play, SlidersHorizontal } from "lucide-react";
 import { IAnimeEpisode, IAnimeResult } from "@/types";
 import Pagination from "./pagination";
 import { useState } from "react";
@@ -248,8 +248,11 @@ export default function Episodes({
 
 function AnimeCard({ anime }: { anime: IAnimeResult }) {
   return (
-    <Link href={`/info?anime=${anime.id}`} className="group relative">
-      <div className="aspect-video rounded relative cursor-pointer">
+    <Link
+      href={`/info?anime=${anime.id}`}
+      className="relative overflow-hidden group"
+    >
+      <div className="transition-transform duration-500 transform origin-center group-hover:scale-110">
         <LazyLoadImage
           loading="lazy"
           effect="blur"
@@ -259,6 +262,10 @@ function AnimeCard({ anime }: { anime: IAnimeResult }) {
           width="100%"
           height="100%"
         />
+        {/* overlay */}
+        <div className="absolute inset-0 bg-black/70 hidden transition-opacity group-hover:grid place-items-center">
+          <Play size={20} className="text-white hover:text-red-500" />
+        </div>
       </div>
       <h3 className="line-clamp-1 mt-2">
         {cleanHtmlTags(anime.title)}

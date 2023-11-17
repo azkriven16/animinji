@@ -20,6 +20,7 @@ import { IAnimeResult } from "@/types";
 
 interface NavSearchProps {
   className?: string;
+  input?: string;
   variant?:
     | "link"
     | "default"
@@ -31,7 +32,11 @@ interface NavSearchProps {
     | undefined;
 }
 
-export default function NavSearch({ className, variant }: NavSearchProps) {
+export default function NavSearch({
+  className,
+  variant,
+  input,
+}: NavSearchProps) {
   const isLg = useMediaQuery("(max-width: 1024px)");
   const [isCtrlKPressed, setIsCtrlKPressed] = useState(false);
   const [query, setQuery] = useState<string>("");
@@ -45,6 +50,14 @@ export default function NavSearch({ className, variant }: NavSearchProps) {
       setIsCtrlKPressed((prev) => !prev);
     }
   };
+
+  useEffect(() => {
+    if (path === "/info" && input) {
+      setIsCtrlKPressed(true);
+      setQuery(input || "");
+    }
+  }, [input]);
+
   useEffect(() => {
     window.addEventListener("keydown", keyDownHandler);
     return () => {
