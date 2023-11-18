@@ -17,6 +17,7 @@ import { cleanHtmlTags } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
 import AddFavorite from "@/components/add-favorite";
 import AnimeNotFound from "./_components/anime-not-found";
+import Comments from "@/components/comments";
 
 export default function InfoPage() {
   const searchParams = useSearchParams();
@@ -85,8 +86,8 @@ export default function InfoPage() {
 
           <AccordionItem value="item-3">
             <AccordionTrigger>Comments</AccordionTrigger>
-            <AccordionContent>
-              This is the comment section but i dont know how to make it :(
+            <AccordionContent className="py-2 px-1">
+              <Comments />
             </AccordionContent>
           </AccordionItem>
         </Accordion>

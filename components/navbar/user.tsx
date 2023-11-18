@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function User() {
   const { user } = useUser();
@@ -22,11 +23,11 @@ export default function User() {
             src={user?.imageUrl!}
             alt="logo"
             className="rounded-full object-cover mt-1 pt-1"
-            width={30}
-            height={30}
+            width={35}
+            height={35}
           />
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="mr-5">
           <DropdownMenuLabel>{user?.fullName}</DropdownMenuLabel>
           <DropdownMenuItem>
             {user?.emailAddresses[0].emailAddress}
@@ -34,7 +35,9 @@ export default function User() {
 
           <DropdownMenuSeparator />
 
-          <DropdownMenuItem>Favorites</DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link href="/favorites">Favorites</Link>
+          </DropdownMenuItem>
           <SignOutButton>
             <DropdownMenuItem>Sign Out</DropdownMenuItem>
           </SignOutButton>

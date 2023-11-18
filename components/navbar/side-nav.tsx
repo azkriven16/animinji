@@ -27,6 +27,10 @@ import { useState } from "react";
 export default function SideNav() {
   const [open, setOpen] = useState(false);
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
@@ -42,7 +46,7 @@ export default function SideNav() {
 
           <ul className="flex flex-col pt-5 py-10 border-y">
             {siteConfig.navItems.map((link) => (
-              <li key={link.text}>
+              <li onClick={handleClose} key={link.text}>
                 <Link
                   href={link.href}
                   className={cn(
@@ -61,7 +65,7 @@ export default function SideNav() {
                 <SignInButton mode="modal">
                   <div>
                     <Button
-                      onClick={() => setOpen((prev) => !prev)}
+                      onClick={handleClose}
                       size="sm"
                       className="w-full mb-1"
                     >
@@ -76,7 +80,11 @@ export default function SideNav() {
 
               <SignedIn>
                 <Link href="/favorites">
-                  <Button size="sm" className="w-full mb-1">
+                  <Button
+                    onClick={handleClose}
+                    size="sm"
+                    className="w-full mb-1"
+                  >
                     Favorites
                   </Button>
                   <span className="text-sm text-muted-foreground hover:underline hover:text-foreground cursor-pointer">
@@ -91,7 +99,7 @@ export default function SideNav() {
                 <SignUpButton mode="modal">
                   <div>
                     <Button
-                      onClick={() => setOpen((prev) => !prev)}
+                      onClick={handleClose}
                       variant="secondary"
                       size="sm"
                       className="w-full mb-1"
