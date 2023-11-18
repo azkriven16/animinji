@@ -16,3 +16,5 @@ export const cleanHtmlTags = (text: string | any) => {
     );
   }
 };
+
+export const skeletonArray = new Array(20).fill(null);

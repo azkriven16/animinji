@@ -1,5 +1,4 @@
 "use client";
-import Error from "@/components/error";
 import NoItems from "@/components/no-items";
 import Shell from "@/components/shell";
 import { Button } from "@/components/ui/button";
@@ -8,12 +7,15 @@ import { siteConfig } from "@/constants/site";
 import { useAuth } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { trpc } from "@/app/_trpc/client";
+import FavoriteItem from "./_components/favorite-item";
 
 export default function Favorites() {
+  const { data, isLoading } = trpc.getUserFavorite.useQuery();
   const { userId } = useAuth();
   const path = usePathname();
   return (
-    <Shell className="my-5">
+    <Shell className="my-5 space-y-5">
       <div className="flex gap-3">
         {siteConfig.navItems.map((item) => (
           <Link href={item.href} key={item.text}>
@@ -34,6 +36,18 @@ export default function Favorites() {
           img="/todo-list.png"
           subheadline="You need to login to see favorites."
         />
+      ) : data?.length !== 0 ? (
+        <div className="grid gap-2 grid-cols-2 sm:grid-cols-4 md:grid-cols-5">
+          {data?.map((item) => (
+            <FavoriteItem
+              anime={{
+                ...item,
+                createdAt: new Date(item.createdAt),
+                updatedAt: new Date(item.updatedAt),
+              }}
+            />
+          ))}
+        </div>
       ) : (
         <NoItems headline="There are no items to display." />
       )}

@@ -9,6 +9,9 @@ import TRPCProvider from "@/providers/trpc-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { siteConfig } from "@/constants/site";
 
+// react image lazy load css
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

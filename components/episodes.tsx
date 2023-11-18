@@ -1,6 +1,6 @@
 "use client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn, cleanHtmlTags } from "@/lib/utils";
+import { cn, cleanHtmlTags, skeletonArray } from "@/lib/utils";
 import Link from "next/link";
 import { Play, SlidersHorizontal } from "lucide-react";
 import { IAnimeEpisode, IAnimeResult } from "@/types";
@@ -29,7 +29,6 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Input } from "./ui/input";
 import { toast } from "sonner";
 import { Badge } from "./ui/badge";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import { siteConfig } from "@/constants/site";
 
 interface GridProps {
@@ -55,7 +54,6 @@ export default function Episodes({
   const path = usePathname();
   const router = useRouter();
 
-  const skeletonArray = new Array(20).fill(null);
   const [visibleEpisodes, setVisibleEpisodes] = useState(
     initialVisibleEpisodes
   );
