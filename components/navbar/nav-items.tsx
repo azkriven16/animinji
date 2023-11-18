@@ -6,7 +6,7 @@ export default function NavItems() {
   return (
     <ul className="flex space-x-2">
       {siteConfig.navItems.map((link) => (
-        <li>
+        <li key={link.href}>
           <Link
             href={link.href}
             className={buttonVariants({ variant: "ghost" })}

@@ -1,12 +1,12 @@
-import { protectedProcedure, publicProcedure, router } from "./trpc";
-import { TRPCError } from "@trpc/server";
-import { db } from "@/db";
-import { z } from "zod";
+import { router } from "./trpc";
+import { getUserFavorite } from "./user-favorite";
+import { addUserFavorite } from "./add-user-favorite";
+import { authCallback } from "./auth-callback";
 
 export const appRouter = router({
-  getSearchStatus: publicProcedure.mutation(async ({ ctx }) => {
-    return true;
-  }),
+  authCallback: authCallback,
+  getUserFavorite: getUserFavorite,
+  addUserFavorite: addUserFavorite,
 });
 
 export type AppRouter = typeof appRouter;

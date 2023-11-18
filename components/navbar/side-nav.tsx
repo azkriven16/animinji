@@ -24,7 +24,7 @@ import {
 } from "@clerk/clerk-react";
 import { useState } from "react";
 
-export default function NavMobile() {
+export default function SideNav() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -42,9 +42,8 @@ export default function NavMobile() {
 
           <ul className="flex flex-col pt-5 py-10 border-y">
             {siteConfig.navItems.map((link) => (
-              <li>
+              <li key={link.text}>
                 <Link
-                  key={link.text}
                   href={link.href}
                   className={cn(
                     buttonVariants({ variant: "ghost" }),

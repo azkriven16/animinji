@@ -12,7 +12,7 @@ import {
   SignedOut,
 } from "@clerk/nextjs";
 import { Spinner } from "../spinner";
-import User from "../user";
+import User from "./user";
 
 export default function Navbar() {
   return (

@@ -15,7 +15,8 @@ import {
 } from "@/components/ui/accordion";
 import { cleanHtmlTags } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import AnimeNotFound from "@/components/anime-not-found";
+import AddFavorite from "@/components/add-favorite";
+import AnimeNotFound from "./_components/anime-not-found";
 
 export default function InfoPage() {
   const searchParams = useSearchParams();
@@ -79,6 +80,9 @@ export default function InfoPage() {
               />
             </AccordionContent>
           </AccordionItem>
+
+          <AddFavorite className="my-5" anime={data} />
+
           <AccordionItem value="item-3">
             <AccordionTrigger>Comments</AccordionTrigger>
             <AccordionContent>

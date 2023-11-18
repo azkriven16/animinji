@@ -1,8 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Button } from "./ui/button";
+import { Button } from "../../../../components/ui/button";
 import Image from "next/image";
-import NavSearch from "./navbar/nav-search";
+import { SignInButton } from "@clerk/nextjs";
 
 interface ErrorProps {
   headline: string;
@@ -10,7 +10,11 @@ interface ErrorProps {
   img: string;
 }
 
-export default function Error({ headline, subheadline, img }: ErrorProps) {
+export default function Unauthorized({
+  headline,
+  subheadline,
+  img,
+}: ErrorProps) {
   const router = useRouter();
   return (
     <div className="flex flex-col justify-center items-center min-h-screen max-w-lg mx-auto">
@@ -24,7 +28,18 @@ export default function Error({ headline, subheadline, img }: ErrorProps) {
         width={200}
       />
 
-      <Button size="sm" onClick={() => router.back()} className="mt-5 w-full">
+      <SignInButton mode="modal" afterSignInUrl="/favorites">
+        <Button size="sm" className="mt-5 w-full">
+          Sign In
+        </Button>
+      </SignInButton>
+
+      <Button
+        variant="secondary"
+        size="sm"
+        onClick={() => router.back()}
+        className="mt-5 w-full"
+      >
         Go back
       </Button>
     </div>

@@ -5,6 +5,7 @@ const t = initTRPC.create();
 
 const isAuthed = t.middleware(async ({ next }) => {
   const { userId, user } = auth();
+
   if (!userId && !user) {
     throw new TRPCError({
       code: "UNAUTHORIZED",

@@ -6,7 +6,7 @@ import Error from "@/components/error";
 import { Spinner } from "@/components/spinner";
 import { cleanHtmlTags } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
-import VideoPlayer from "@/components/video-player";
+import VideoPlayer from "./_components/video-player";
 import { IAnimeEpisode } from "@/types";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";

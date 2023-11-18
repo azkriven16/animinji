@@ -230,7 +230,9 @@ export default function Episodes({
             ))}
       </div>
 
-      {data?.results?.length === 0 && <NoItems />}
+      {data?.results?.length === 0 && (
+        <NoItems headline="There are no items to display." />
+      )}
 
       {visibleEpisodes < totalEpisodes && (
         <Button
