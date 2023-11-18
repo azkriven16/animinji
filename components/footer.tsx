@@ -29,7 +29,9 @@ export default function Footer() {
             <ModeToggle />
 
             <Button variant="ghost">
-              <AiFillGithub size={20} />
+              <a href={siteConfig.links.project} target="_blank">
+                <AiFillGithub size={20} />
+              </a>
             </Button>
           </div>
         </div>
@@ -53,7 +55,7 @@ function MainFooter() {
 
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Social</h1>
-          {siteConfig.lofi.map((item) => (
+          {siteConfig.social.map((item) => (
             <FooterStack {...item} key={item.text} />
           ))}
         </div>

@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "animinji.vercel.app",
   links: {
     twitter: "https://twitter.com/EugerBonete",
-    github: "https://eug.vercel.app/",
+    github: "https://github.com/EugerBonete",
     project: "https://github.com/EugerBonete/animinji",
   },
   navItems: [
@@ -39,6 +39,24 @@ export const siteConfig = {
     {
       text: "React Query",
       href: "https://tanstack.com/query/latest/",
+    },
+  ],
+  social: [
+    {
+      text: "Facebook",
+      href: "https://www.facebook.com/",
+    },
+    {
+      text: "Twitter",
+      href: "https://twitter.com/",
+    },
+    {
+      text: "Linked In",
+      href: "https://www.linkedin.com/",
+    },
+    {
+      text: "Gmail",
+      href: "http://gmail.com/",
     },
   ],
   lofi: [
