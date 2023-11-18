@@ -1,8 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
+import { trpc } from "../_trpc/client";
 import { Loader2 } from "lucide-react";
-import { trpc } from "@/app/_trpc/client";
-import { toast } from "sonner";
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -17,7 +16,9 @@ export default function AuthCallback() {
       }
     },
     onError: (err) => {
-      toast.error("An error occured try again later.");
+      if (err.data?.code === "UNAUTHORIZED") {
+        router.push("/sign-in");
+      }
     },
 
     retry: true,
