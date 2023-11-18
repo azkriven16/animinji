@@ -32,13 +32,13 @@ model Favorite {
 }
 
 model Comment {
-  id        String @id @default(cuid())
-  User      User   @relation(fields: [userId], references: [id])
-  userId    String
-  comment   String
-  episodeId String
-  userImg   String
-  userName  String
+  id       String @id @default(cuid())
+  User     User   @relation(fields: [userId], references: [id])
+  userId   String
+  comment  String
+  animeId  String
+  userImg  String
+  userName String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
