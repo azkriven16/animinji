@@ -32,7 +32,7 @@ export default function New() {
         loading={isLoading}
         text="Recent Release"
         desc="Check out latest episodes"
-        pagination="new"
+        pagination="/"
       />
     </Shell>
   );

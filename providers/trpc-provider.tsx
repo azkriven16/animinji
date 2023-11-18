@@ -6,13 +6,13 @@ import { trpc } from "@/app/_trpc/client";
 import { httpBatchLink } from "@trpc/client";
 import { Toaster } from "sonner";
 
+export const apiUrl =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_TRPC!
+    : "http://localhost:3000/api/trpc";
+
 export default function TRPCProvider({ children }: PropsWithChildren) {
   const [queryClient] = useState(() => new QueryClient());
-
-  const apiUrl =
-    process.env.NODE_ENV === "production"
-      ? process.env.NEXT_PUBLIC_TRPC!
-      : "http://localhost:3000/api/trpc";
 
   const [trpcClient] = useState(() =>
     trpc.createClient({

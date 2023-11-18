@@ -22,7 +22,7 @@ export default function User() {
           <Image
             src={user?.imageUrl!}
             alt="logo"
-            className="rounded-full object-cover mt-1 pt-1"
+            className="rounded-full object-cover"
             width={35}
             height={35}
           />

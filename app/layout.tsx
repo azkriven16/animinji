@@ -70,11 +70,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <TRPCProvider>
-              <Navbar />
-              <main className="min-h-screen bg-background">{children}</main>
-              <Footer />
-            </TRPCProvider>
+            <TRPCProvider>{children}</TRPCProvider>
           </ThemeProvider>
         </body>
       </html>
