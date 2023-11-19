@@ -7,8 +7,9 @@ import { redirect } from "next/navigation";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "New",
 };
+
 export default async function Layout({ children }: { children: ReactNode }) {
   const { userId } = auth();
 

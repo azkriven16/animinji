@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/providers/theme-provider";
-import Navbar from "@/components/navbar/navbar";
-import Footer from "@/components/footer";
 import TRPCProvider from "@/providers/trpc-provider";
 import { ClerkProvider } from "@clerk/nextjs";
 import { siteConfig } from "@/constants/site";
 
 // react image lazy load css
 import "react-lazy-load-image-component/src/effects/blur.css";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [

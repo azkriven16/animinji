@@ -1,39 +1,15 @@
-"use client";
+import TopAiringGrid from "./_components/top-airing-grid";
+import { Metadata } from "next";
+import { siteConfig } from "@/constants/site";
 
-import Episodes from "@/components/episodes";
-import Error from "@/components/error";
-import Shell from "@/components/shell";
-import { animeType, useAnime } from "@/context/use-anime";
-import { useSearchParams } from "next/navigation";
-import React from "react";
+export const metadata: Metadata = {
+  title: `Top Airing - ${siteConfig.name}`,
+};
 
-export default function TopAiring() {
-  const searchParams = useSearchParams();
-  const page = parseInt(searchParams.get("page") || "1", 10);
-
-  const { data, isLoading, isError } = useAnime({
-    type: animeType.TopAiring,
-    page: page,
-  });
-
-  if (isError)
-    return (
-      <Error
-        headline="Oops! Something went wrong."
-        img="/movie.png"
-        subheadline="We're sorry, but an error occurred while loading this page."
-      />
-    );
-
+export default function TopAiringPage() {
   return (
-    <Shell>
-      <Episodes
-        data={data}
-        loading={isLoading}
-        text="Top Airing"
-        desc="Trending anime this month"
-        pagination="top-airing"
-      />
-    </Shell>
+    <div>
+      <TopAiringGrid />
+    </div>
   );
 }
