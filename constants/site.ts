@@ -77,4 +77,22 @@ export const siteConfig = {
       href: "https://www.youtube.com/watch?v=2gliGzb2_1I",
     },
   ],
+  help: [
+    {
+      text: "About",
+      href: "/about",
+    },
+    {
+      text: "Contact",
+      href: "/contact",
+    },
+    {
+      text: "Terms",
+      href: "/terms",
+    },
+    {
+      text: "Privacy",
+      href: "/privacy",
+    },
+  ],
 };

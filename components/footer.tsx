@@ -62,7 +62,7 @@ function MainFooter() {
 
         <div className="flex flex-col">
           <h1 className="text-base sm:text-md font-medium">Help</h1>
-          {siteConfig.lofi.map((item) => (
+          {siteConfig.help.map((item) => (
             <FooterStack {...item} key={item.text} />
           ))}
         </div>
