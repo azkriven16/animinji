@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Button } from "../../../../components/ui/button";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import Image from "next/image";
-import NavSearch from "../../../../components/navbar/nav-search";
+import NavSearch from "@/components/navbar/nav-search";
 
 export default function AnimeNotFound({ anime }: { anime: string }) {
   const router = useRouter();

@@ -7,7 +7,7 @@ import { animeType, useAnime } from "@/context/use-anime";
 import { useSearchParams } from "next/navigation";
 import React from "react";
 
-export default function New() {
+export default function NewAnime() {
   const searchParams = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1", 10);
 

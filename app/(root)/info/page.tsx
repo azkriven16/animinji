@@ -1,11 +1,9 @@
-import React from "react";
 import AnimeInfo from "./_components/anime-info";
 import { Metadata } from "next";
 import { animeBaseURL, siteConfig } from "@/constants/site";
 import { cleanHtmlTags } from "@/lib/utils";
 
 type Props = {
-  params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
@@ -20,6 +18,7 @@ export async function generateMetadata({
     title: `${cleanHtmlTags(res.title)} - ${siteConfig.name}`,
   };
 }
+
 export default function Info() {
   return <AnimeInfo />;
 }

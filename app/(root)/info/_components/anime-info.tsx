@@ -19,9 +19,7 @@ import AddFavorite from "@/components/add-favorite";
 import Comments from "@/components/comments";
 import AnimeNotFound from "./anime-not-found";
 
-type Props = {};
-
-export default function AnimeInfo({}: Props) {
+export default function AnimeInfo() {
   const searchParams = useSearchParams();
 
   const anime = searchParams.get("anime") || "";
