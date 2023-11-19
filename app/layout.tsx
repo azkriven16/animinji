@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/providers/theme-provider";
-import TRPCProvider from "@/providers/trpc-provider";
-import { ClerkProvider } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import { siteConfig } from "@/constants/site";
 
 // react image lazy load css
 import "react-lazy-load-image-component/src/effects/blur.css";
 import "./globals.css";
+import { db } from "@/db";
+import { redirect } from "next/navigation";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar/navbar";
+import Providers from "@/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,47 +31,36 @@ export const metadata: Metadata = {
       url: siteConfig.url,
     },
   ],
-  icons: {
-    icon: [
-      {
-        media: "(prefers-color-scheme: light)",
-        url: "/logo.svg",
-        href: "/logo.svg",
-      },
-      {
-        media: "(prefers-color-scheme: dark)",
-        url: "/logo-dark.svg",
-        href: "/logo-dark.svg",
-      },
-    ],
-  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { userId } = auth();
+
+  if (userId) {
+    const dbUser = await db.user.findFirst({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (!dbUser) {
+      return redirect("/auth-callback");
+    }
+  }
+
   return (
-    <ClerkProvider
-      appearance={{
-        variables: {
-          colorPrimary: "#dc2626",
-        },
-      }}
-    >
-      <html lang="en" suppressHydrationWarning>
-        <body className={cn("antialiased", inter.className)}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <TRPCProvider>{children}</TRPCProvider>
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("antialiased", inter.className)}>
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
+    </html>
   );
 }

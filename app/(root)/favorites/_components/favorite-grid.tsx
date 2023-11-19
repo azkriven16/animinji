@@ -9,11 +9,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { trpc } from "@/app/_trpc/client";
 import FavoriteItem from "./favorite-item";
+import { Spinner } from "@/components/spinner";
 
 export default function FavoritesGrid() {
   const { data, isLoading } = trpc.getUserFavorite.useQuery();
   const { userId } = useAuth();
   const path = usePathname();
+
+  if (isLoading) {
+    <div className="py-36">
+      <Spinner size="lg" />
+    </div>;
+  }
   return (
     <Shell className="my-5 space-y-5 min-h-screen">
       <div className="flex gap-3">
