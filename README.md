@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Animinji - Anime Streaming Website
 
-## Getting Started
+Fullstack anime streaming platform where you can watch & stream anime.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Overview](#overview)
+- [Features](#features)
+- [How to Use](#how-to-use)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Overview
 
-## Learn More
+![Animinji Screenshot](public/screenshot.png)
+![Animinji Screenshot](public/screenshot2.png)
 
-To learn more about Next.js, take a look at the following resources:
+### Built With
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js 13](https://nextjs.org/docs): A popular React framework for building web applications.
+- [Shadcn](https://ui.shadcn.com/): A library for enhancing UI design.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+- [Supabase](https://supabase.com/): An open-source Firebase alternative for building serverless, real-time applications.
+- [TanStack Query](https://tanstack.com/query/latest): A data-fetching library for React.
+- [trpc](https://trpc.io/): A modern TypeScript utility for building type-safe APIs.
+- [Clerk](https://clerk.com/): A solution for authentication and user management.
+- [ArtPlayer](https://www.artplayer.org/document/): A customizable video player for your web application.
+- [Sonner](https://sonner.emilkowal.ski/): A library for creating toasts in your web app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Animinji allows users to watch anime, add favorites and leave comments for an engaging anime experience.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
