@@ -7,7 +7,7 @@ Fullstack anime streaming platform where you can watch & stream anime.
 
 - [Overview](#overview)
 - [Features](#features)
-- [How to Use](#how-to-use)
+- [Installation](#installation)
 
 
 ## Overview
@@ -31,4 +31,24 @@ Fullstack anime streaming platform where you can watch & stream anime.
 ## Features
 
 Animinji allows users to watch anime, add favorites and leave comments for an engaging anime experience.
+
+## Installation
+
+Clone and add your own env files
+
+```bash
+# Example installation commands
+git clone https://github.com/yourusername/your-project.git
+cd your-project
+npm install
+```
+
+# How to use the example environment file
+
+1. Copy the `.env.example` file.
+2. Rename the copied file to `.env`.
+3. Replace the placeholder values with your actual configuration values.
+
+Now your application can read configurations from the `.env` file.
+
 
