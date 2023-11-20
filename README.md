@@ -3,7 +3,7 @@
 Fullstack anime streaming platform where you can watch & stream anime.
 
 
-# Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -15,7 +15,7 @@ Fullstack anime streaming platform where you can watch & stream anime.
 ![Animinji Screenshot](public/screenshot.png)
 ![Animinji Screenshot](public/screenshot2.png)
 
-### Built With
+## Built With
 
 - [Next.js 13](https://nextjs.org/docs): A popular React framework for building web applications.
 - [Shadcn](https://ui.shadcn.com/): A library for enhancing UI design.
@@ -43,7 +43,7 @@ cd your-project
 npm install
 ```
 
-# How to use the example environment file
+### How to use the example environment file
 
 1. Copy the `.env.example` file.
 2. Rename the copied file to `.env`.
