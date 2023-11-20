@@ -37,8 +37,8 @@ Animinji allows users to watch anime, add favorites and leave comments for an en
 Clone and add your own env files
 
 ```bash
-# Example installation commands
-git clone https://github.com/yourusername/your-project.git
+#  Installation commands
+git clone https://github.com/EugerBonete/animinji.git
 cd your-project
 npm install
 ```
